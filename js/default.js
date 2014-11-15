@@ -135,8 +135,9 @@ function initialize(url, first) {
     }
     $.post("http://crossdomainxmlfetch.appspot.com/", { "fetch": url }, function (data) {
         imglist = [];
-		.fail(function (d){alert("Could not fetch data. Check your connection.")});
+        var found = 0;
         $(data).find("item").each(function () {
+            found++;
             var el = $(this);
             var td = document.createElement("div");
             var tit = document.createElement("h3");
@@ -171,6 +172,10 @@ function initialize(url, first) {
             td.setAttribute("id", lnk);
             document.getElementById("main").appendChild(td);
         });
+        if (found == 0) {
+            alert("Could not load results from XML file. Check your internet connection.");
+            disableWeb();
+        }
         showLoading(false);
-    }, );
+    });
 }
