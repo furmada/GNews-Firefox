@@ -2,6 +2,7 @@
   "name": "GNews",
   "description": "An open source news reader for Google News",
   "launch_path": "/default.html",
+  "version": "1.1",
   "icons": {
     "512": "/images/logo-512.png",
     "128": "/images/logo-128.png",
